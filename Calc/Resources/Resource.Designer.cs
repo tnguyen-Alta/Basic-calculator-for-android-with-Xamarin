@@ -6,7 +6,7 @@
 //
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
-// </auto-generated>
+// </auto-generated>//////
 //------------------------------------------------------------------------------
 
 [assembly: global::Android.Runtime.ResourceDesignerAttribute("Calc.Resource", IsApplication=true)]

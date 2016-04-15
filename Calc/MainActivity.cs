@@ -8,6 +8,7 @@ using Android.OS;
 
 namespace Calc
 {
+    //Simple Calc
     [Activity(Label = "Calc", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
@@ -35,11 +36,10 @@ namespace Calc
 
         TextView edittext;
 
-
-        public string n=string.Empty;
+        public string n=string.Empty;//current
         public double first=0;
         public double second ;
-        public double k;
+        public double k;//for operations equal when n==null
 
         public Type oper;
         public enum Type {add,diff,div ,mul};
@@ -68,11 +68,8 @@ namespace Calc
         {
             base.OnCreate(bundle);
 
-            // Set our view from the "main" layout resource
+            /
             SetContentView(Resource.Layout.layout1);
-
-            // Get our button from the layout resource,
-            // and attach an event to it
 
              buttonadd = FindViewById<Button>(Resource.Id.Buttonadd);
              buttondiff = FindViewById<Button>(Resource.Id.Buttondiff);
@@ -97,10 +94,9 @@ namespace Calc
              button9 = FindViewById<Button>(Resource.Id.Button9);
              button0 = FindViewById<Button>(Resource.Id.Button0);
 
-                edittext = FindViewById<TextView>(Resource.Id.Edittext);
+            edittext = FindViewById<TextView>(Resource.Id.Edittext);
             edittext.Text = first.ToString();
-           // n = edittext.Text;
-           
+                   
             button1.Click += delegate {
                 append(1);                
             };
@@ -170,8 +166,7 @@ namespace Calc
                     }
                     else
                     {
-                        //n.Remove(n.Length - 1);
-                        edittext.Text = n;
+                       edittext.Text = n;
                     }
                 };
 
@@ -241,9 +236,7 @@ namespace Calc
                         edittext.Text = first.ToString();
                     }
 
-                    //first = double.Parse(n);
-                    //    double.TryParse(n, out first);
-                    //    n = string.Empty;               
+                               
                     if (first == 0 && n == string.Empty)
                         n = first.ToString();
                     else
@@ -254,8 +247,7 @@ namespace Calc
                         first = double.Parse(n);
                         n = string.Empty;
                     }
-
-                }
+                   }
                 catch (Exception ex)
                 {
                     edittext.Text = ex.Message;
@@ -266,7 +258,6 @@ namespace Calc
                 {
                    
                         oper = Type.div;
-                    // textview1.Text = n;
                     if (n == "Error")
                     {
                         n = string.Empty;
